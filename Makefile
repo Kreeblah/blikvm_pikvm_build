@@ -2,7 +2,7 @@
 
 PLATFORM ?= v2-pcie
 SUFFIX ?=
-export BOARD ?= rpi4
+export BOARD ?= cm4
 export PROJECT ?= blikvm-pikvm-os.$(PLATFORM)$(SUFFIX)
 export STAGES ?= __init__ os pikvm-repo watchdog rootdelay ro no-audit pikvm blikvm __cleanup__
 export NC ?=
@@ -26,6 +26,12 @@ ifeq ($(PLATFORM),v2-pcie)
 	PIKVM_PLATFORM = v3-hdmi
 	PIKVM_BOARD = rpi4
 	PIKVM_SUFFIX = -box
+	ifndef FAN
+		FAN = 1
+	endif
+	ifndef OLED
+		OLED = 1
+	endif
 else
 	PIKVM_PLATFORM = $(PLATFORM)
 	PIKVM_BOARD = $(BOARD)
