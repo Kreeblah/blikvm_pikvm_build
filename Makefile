@@ -36,7 +36,7 @@ endif
 # =====
 SHELL = /usr/bin/env bash
 _BUILDER_DIR = ./.pi-builder/$(PLATFORM)-$(BOARD)$(SUFFIX)
-_BLIKVM_SOURCE_DIR = $(_BUILDER_DIR)/stages/blikvm_source
+_BLIKVM_SOURCE_DIR = ./stages/blikvm_source
 
 define optbool
 $(filter $(shell echo $(1) | tr A-Z a-z),yes on 1)
@@ -120,4 +120,5 @@ clean-all:
 	- $(MAKE) -C $(_BUILDER_DIR) clean-all
 	rm -rf $(_BUILDER_DIR)
 	- rmdir `dirname $(_BUILDER_DIR)`
-
+	rm -rf $(_BLIKVM_SOURCE_DIR)
+	- rmdir `dirname $(_BLIKVM_SOURCE_DIR)`
