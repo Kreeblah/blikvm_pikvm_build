@@ -1,5 +1,7 @@
 # PiKVM OS Images for BliKVM hardware (WIP)
 
+This repo is a modification of the official PiKVM build system to apply the [BliKVM modifications](https://wiki.blicube.com/blikvm/en/modify_pikvm_image/) to the produced images, including the fan modifications, EDID modification, and `dtoverlay` option for 1080p support.  Everything else is currently offered in the base PiKVM repository.
+
 Currently, only for the PCIe v2 board, as that's the only BliKVM product I have.
 
 Build instructions are mostly as written [in the PiKVM documentation](https://docs.pikvm.org/building_os/) with the following changes:
