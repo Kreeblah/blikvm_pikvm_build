@@ -1,0 +1,12 @@
+RUN mkdir -p /usr/bin
+COPY stages/blikvm_source/package/kvmd-fan/kvmd-fan.py /usr/bin/kvmd-fan
+RUN chmod 755 /usr/bin/kvmd-fan
+
+RUN mkdir -p /usr/lib/systemd/system
+COPY stages/blikvm_source/package/kvmd-fan/kvmd-fan.service /usr/lib/systemd/system/kvmd-fan.service
+
+COPY stages/blikvm/override.yaml /etc/kvmd/override.yaml
+
+COPY stages/blikvm/tc358743-edid.hex /etc/kvmd/tc358743-edid.hex
+
+RUN sed 's/dtoverlay=tc358743/dtoverlay=tc358743,4lane=1/' /boot/config.txt
