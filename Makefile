@@ -36,7 +36,7 @@ endif
 # =====
 SHELL = /usr/bin/env bash
 _BUILDER_DIR = ./.pi-builder/$(PLATFORM)-$(BOARD)$(SUFFIX)
-_BLIKVM_SOURCE_DIR = $(_BUILDER_DIR)/stages/blikvm_source
+_BLIKVM_SOURCE_DIR = $(_BUILDER_DIR)/stages/arch/blikvm_source
 
 define optbool
 $(filter $(shell echo $(1) | tr A-Z a-z),yes on 1)
