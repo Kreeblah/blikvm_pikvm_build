@@ -3,8 +3,8 @@
 PLATFORM ?= v2-pcie
 SUFFIX ?=
 export BOARD ?= rpi4
-export PROJECT ?= pikvm-os.$(PLATFORM)$(SUFFIX)
-export STAGES ?= __init__ os pikvm-repo watchdog rootdelay ro no-audit pikvm __cleanup__
+export PROJECT ?= blikvm-pikvm-os.$(PLATFORM)$(SUFFIX)
+export STAGES ?= __init__ os pikvm-repo watchdog rootdelay ro no-audit pikvm blikvm __cleanup__
 export NC ?=
 
 export HOSTNAME ?= pikvm
