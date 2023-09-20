@@ -10,7 +10,7 @@ export NC ?=
 export HOSTNAME ?= pikvm
 export LOCALE ?= en_US
 export TIMEZONE ?= Europe/Moscow
-export REPO_URL ?= https://mirror.archlinuxarm.org
+export REPO_URL ?= https://ca.us.mirror.archlinuxarm.org
 BUILD_OPTS ?=
 
 ROOT_PASSWD ?= root
