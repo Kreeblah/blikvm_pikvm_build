@@ -22,21 +22,13 @@ export CARD ?= /dev/mmcblk0
 DEPLOY_USER ?= root
 
 
-ifeq ($(PLATFORM), "v2-pcie")
+ifeq ($(PLATFORM),v2-pcie)
 	PIKVM_PLATFORM="v3-hdmi"
-else
-	PIKVM_PLATFORM=$(PLATFORM)
-endif
-
-ifeq ($(PLATFORM), "v2-pcie")
 	PIKVM_BOARD="rpi4"
-else
-	PIKVM_BOARD=$(BOARD)
-endif
-
-ifeq ($(PLATFORM), "v2-pcie")
 	PIKVM_SUFFIX="-box"
 else
+	PIKVM_PLATFORM=$(PLATFORM)
+	PIKVM_BOARD=$(BOARD)
 	PIKVM_SUFFIX=$(SUFFIX)
 endif
 
