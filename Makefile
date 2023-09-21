@@ -101,9 +101,7 @@ $(_BLIKVM_SOURCE_DIR):
 
 update: $(_BUILDER_DIR) $(_BLIKVM_SOURCE_DIR)
 	cd $(_BUILDER_DIR) && git pull --rebase
-	git pull --rebase
 	cd $(_UPSTREAM_OS_DIR) && git pull --rebase
-	git pull --rebase
 	cd $(_BLIKVM_SOURCE_DIR) && git pull --rebase
 	git pull --rebase
 
