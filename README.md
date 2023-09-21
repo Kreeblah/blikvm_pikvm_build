@@ -8,5 +8,6 @@ Build instructions are mostly as written [in the PiKVM documentation](https://do
 
 1. The build repo URL for the Git checkout in step 2 is (obviously) different, and needs to be changed to: https://github.com/Kreeblah/blikvm_pikvm_build
 2. The `PLATFORM` option is used both to identify the specific board being used, but also to select which options to hard-code for the equivalent PiKVM product to build the base image for (which is then modified).
+3. Depending on where you live, you may want to modify the Makefile to point to a closer Arch Linux mirror.  Available mirrors are listed at https://archlinuxarm.org/about/mirrors
 
 The `PLATFORM` value for the PCIe V2 is `v2-pcie`.  The `BOARD` value for the PCIe V2 is `rpi4`.
