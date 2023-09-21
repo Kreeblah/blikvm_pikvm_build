@@ -9,7 +9,7 @@ Currently, this only builds images for the PCIe v2 board, as that's the only Bli
 Build instructions are mostly as written [in the PiKVM documentation](https://docs.pikvm.org/building_os/) with the following changes:
 
 1. The build repo URL for the Git checkout in step 2 is (obviously) different, and needs to be changed to: https://github.com/Kreeblah/blikvm_pikvm_build
-2. The `PLATFORM` option is used both to identify the specific board being used, but also to select which options to hard-code for the equivalent PiKVM product to build the base image for (which is then modified).
+2. The `PLATFORM`, `BOARD`, and `SUFFIX` variables are determined by the Makefile based on the new, required `BLIKVM_PLATFORM` variable, which can either be specified in `config.mk` or passed as a key-value pair to the `make` command (e.g. `make os BLIKVM_PLATFORM=v2-pcie`).
 3. Depending on where you live, you may want to modify the Makefile to point to a closer Arch Linux mirror.  Available mirrors are listed at https://archlinuxarm.org/about/mirrors
 
-The `PLATFORM` value for the PCIe V2 is `v2-pcie`.  The `BOARD` value for the PCIe V2 is `rpi4`.
+The `BLIKVM_PLATFORM` value for the PCIe V2 is `v2-pcie`.
