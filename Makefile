@@ -5,11 +5,11 @@ ifndef BLIKVM_PLATFORM
 endif
 
 ifeq ($(BLIKVM_PLATFORM),v2-pcie)
-    PLATFORM = v3-hdmi
-    BOARD = rpi4
-    SUFFIX = -box
-    FAN = 1
-    OLED = 1
+    export PLATFORM = v3-hdmi
+    export BOARD = rpi4
+    export SUFFIX = -box
+    export FAN = 1
+    export OLED = 1
     BLIKVM_BOARD = cm4
 else
     $(error Must specify BLIKVM_PLATFORM variable as one of: v2-pcie)
