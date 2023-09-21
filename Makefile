@@ -1,18 +1,18 @@
 -include config.mk
 
 ifndef BLIKVM_PLATFORM
-	$(error Must specify BLIKVM_PLATFORM variable as one of: v2-pcie)
+    $(error Must specify BLIKVM_PLATFORM variable as one of: v2-pcie)
 endif
 
 ifeq ($(BLIKVM_PLATFORM),v2-pcie)
-	PLATFORM = v3-hdmi
-	BOARD = rpi4
-	SUFFIX = -box
-	FAN = 1
-	OLED = 1
-	BLIKVM_BOARD = cm4
+    PLATFORM = v3-hdmi
+    BOARD = rpi4
+    SUFFIX = -box
+    FAN = 1
+    OLED = 1
+    BLIKVM_BOARD = cm4
 else
-	$(error Must specify BLIKVM_PLATFORM variable as one of: v2-pcie)
+    $(error Must specify BLIKVM_PLATFORM variable as one of: v2-pcie)
 endif
 
 
