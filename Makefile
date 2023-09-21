@@ -116,7 +116,6 @@ image: $(_BUILDER_DIR)
 	$(eval _dated := blikvm-pikvm-$(BLIKVM_PLATFORM)-$(BLIKVM_BOARD)$(BLIKVM_SUFFIX)-$(shell date +%Y%m%d).img)
 	mkdir -p images
 	$(MAKE) -C $(_BUILDER_DIR) image IMAGE=$(shell pwd)/images/$(_dated) IMAGE_XZ=1
-	cd images && ln -sf $(_dated).xz $(_latest).xz
 
 
 scan: $(_BUILDER_DIR)
