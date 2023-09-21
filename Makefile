@@ -16,7 +16,7 @@ else
 endif
 
 
-export PROJECT ?= blikvm-pikvm-os.$(BLIKVM_PLATFORM)$(SUFFIX)
+export PROJECT ?= blikvm-pikvm-os.$(BLIKVM_PLATFORM)$(BLIKVM_SUFFIX)
 export STAGES ?= __init__ os pikvm-repo watchdog rootdelay ro no-audit pikvm blikvm __cleanup__
 export NC ?=
 
@@ -37,7 +37,7 @@ DEPLOY_USER ?= root
 
 # =====
 SHELL = /usr/bin/env bash
-_BUILDER_DIR = ./.pi-builder/$(BLIKVM_PLATFORM)-$(BLIKVM_BOARD)$(SUFFIX)
+_BUILDER_DIR = ./.pi-builder/$(BLIKVM_PLATFORM)-$(BLIKVM_BOARD)$(BLIKVM_SUFFIX)
 _UPSTREAM_OS_DIR = ./upstream_os
 _BLIKVM_SOURCE_DIR = $(_BUILDER_DIR)/stages/arch/blikvm_source
 
@@ -46,7 +46,7 @@ $(filter $(shell echo $(1) | tr A-Z a-z),yes on 1)
 endef
 
 define fv
-$(shell curl --silent "https://files.pikvm.org/repos/arch/$(PIKVM_BOARD)/latest/$(1)")
+$(shell curl --silent "https://files.pikvm.org/repos/arch/$(BOARD)/latest/$(1)")
 endef
 
 
