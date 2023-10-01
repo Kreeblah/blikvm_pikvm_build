@@ -1,7 +1,7 @@
 -include config.mk
 
 ifndef BLIKVM_PLATFORM
-    $(error Must specify BLIKVM_PLATFORM variable as one of: v2-pcie)
+    $(error Must specify BLIKVM_PLATFORM variable as one of: v1-cm4, v2-pcie, or v3-hat)
 endif
 
 ifeq ($(BLIKVM_PLATFORM),v1-cm4)
