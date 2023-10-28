@@ -44,7 +44,8 @@ ROOT_PASSWD ?= root
 WEBUI_ADMIN_PASSWD ?= admin
 IPMI_ADMIN_PASSWD ?= admin
 
-export CARD ?= /dev/mmcblk0
+export CARD ?= /dev/null
+export IMAGE_XZ ?= 1
 
 DEPLOY_USER ?= root
 
@@ -126,8 +127,9 @@ install: $(_BUILDER_DIR)
 
 image: $(_BUILDER_DIR)
 	$(eval _dated := blikvm-pikvm-$(BLIKVM_PLATFORM)-$(BLIKVM_BOARD)$(BLIKVM_SUFFIX)-$(shell date +%Y%m%d).img)
+	$(eval _suffix = $(if $(call optbool,$(IMAGE_XZ)),.xz,))
 	mkdir -p images
-	$(MAKE) -C $(_BUILDER_DIR) image IMAGE=$(shell pwd)/images/$(_dated) IMAGE_XZ=1
+	$(MAKE) -C $(_BUILDER_DIR) image IMAGE=$(shell pwd)/images/$(_dated)
 
 
 scan: $(_BUILDER_DIR)
