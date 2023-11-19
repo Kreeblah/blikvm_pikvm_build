@@ -37,13 +37,14 @@ export NC ?=
 export HOSTNAME ?= pikvm
 export LOCALE ?= en_US
 export TIMEZONE ?= Europe/Moscow
-export REPO_URL ?= https://ca.us.mirror.archlinuxarm.org
+export ARCH_DIST_REPO_URL ?= https://ca.us.mirror.archlinuxarm.org
 BUILD_OPTS ?=
 
 ROOT_PASSWD ?= root
 WEBUI_ADMIN_PASSWD ?= admin
 IPMI_ADMIN_PASSWD ?= admin
 
+export DISK ?= $(shell pwd)/upstream_os/disk/$(word 1,$(subst -, ,$(PLATFORM))).conf
 export CARD ?= /dev/null
 export IMAGE_XZ ?= 1
 
@@ -86,7 +87,6 @@ os: $(_BUILDER_DIR) $(_UPSTREAM_OS_DIR) $(_BLIKVM_SOURCE_DIR)
 	rm -rf $(_BUILDER_DIR)/stages/arch/{pikvm,pikvm-otg-console,blikvm}
 	cp -a stages/arch/blikvm $(_BUILDER_DIR)/stages/arch
 	cp -a $(_UPSTREAM_OS_DIR)/stages/arch/{pikvm,pikvm-otg-console} $(_BUILDER_DIR)/stages/arch
-	cp -L $(_UPSTREAM_OS_DIR)/disk/$(word 1,$(subst -, ,$(PLATFORM))).conf $(_BUILDER_DIR)/disk.conf
 	$(MAKE) -C $(_BUILDER_DIR) os \
 		BUILD_OPTS=' $(BUILD_OPTS) \
 			--build-arg PLATFORM=$(PLATFORM) \
