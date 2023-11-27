@@ -31,12 +31,12 @@ endif
 
 
 export PROJECT ?= blikvm-pikvm-os.$(BLIKVM_PLATFORM)$(BLIKVM_SUFFIX)
-export STAGES ?= __init__ os pikvm-repo watchdog rootdelay ro no-audit pikvm blikvm __cleanup__
+export STAGES ?= __init__ os pikvm-repo pistat watchdog rootdelay ro pikvm blikvm restore-mirrorlist __cleanup__
 export NC ?=
 
 export HOSTNAME ?= pikvm
 export LOCALE ?= en_US
-export TIMEZONE ?= Europe/Moscow
+export TIMEZONE ?= UTC
 export ARCH_DIST_REPO_URL ?= https://ca.us.mirror.archlinuxarm.org
 BUILD_OPTS ?=
 
