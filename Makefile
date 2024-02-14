@@ -37,7 +37,7 @@ export NC ?=
 export HOSTNAME ?= pikvm
 export LOCALE ?= en_US
 export TIMEZONE ?= UTC
-export ARCH_DIST_REPO_URL ?= https://ca.us.mirror.archlinuxarm.org
+export ARCH_DIST_REPO_URL ?= https://mirrors.ocf.berkeley.edu/archlinuxarm/
 BUILD_OPTS ?=
 
 ROOT_PASSWD ?= root
