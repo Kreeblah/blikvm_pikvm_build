@@ -7,6 +7,7 @@ endif
 ifeq ($(BLIKVM_PLATFORM),v1-cm4)
     export PLATFORM = v3-hdmi
     export BOARD = rpi4
+    export EDIDTYPE = v3
     export SUFFIX = -box
     export FAN = 1
     export OLED = 1
@@ -14,6 +15,7 @@ ifeq ($(BLIKVM_PLATFORM),v1-cm4)
 else ifeq ($(BLIKVM_PLATFORM),v2-pcie)
     export PLATFORM = v3-hdmi
     export BOARD = rpi4
+    export EDIDTYPE = v4mini
     export SUFFIX = -box
     export FAN = 1
     export OLED = 1
@@ -21,6 +23,7 @@ else ifeq ($(BLIKVM_PLATFORM),v2-pcie)
 else ifeq ($(BLIKVM_PLATFORM),v3-hat)
     export PLATFORM = v3-hdmi
     export BOARD = rpi4
+    export EDIDTYPE = v3
     export SUFFIX = -box
     export FAN = 1
     export OLED = 1
