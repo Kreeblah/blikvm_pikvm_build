@@ -94,6 +94,7 @@ os: $(_BUILDER_DIR) $(_UPSTREAM_OS_DIR) $(_BLIKVM_SOURCE_DIR)
 		BUILD_OPTS=' $(BUILD_OPTS) \
 			--build-arg PLATFORM=$(PLATFORM) \
 			--build-arg VERSIONS=$(call fv,ustreamer)/$(call fv,kvmd)/$(call fv,kvmd-webterm)/$(call fv,kvmd-oled)/$(call fv,kvmd-fan) \
+			--build-arg EDIDTYPE=$(EDIDTYPE) \
 			--build-arg OLED=$(call optbool,$(OLED)) \
 			--build-arg FAN=$(call optbool,$(FAN)) \
 			--build-arg ROOT_PASSWD=$(ROOT_PASSWD) \
