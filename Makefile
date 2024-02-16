@@ -7,7 +7,7 @@ endif
 ifeq ($(BLIKVM_PLATFORM),v1-cm4)
     export PLATFORM = v3-hdmi
     export BOARD = rpi4
-    export EDIDTYPE = v3
+    export EDIDTYPE = v4mini
     export SUFFIX = -box
     export FAN = 1
     export OLED = 1
