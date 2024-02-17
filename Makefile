@@ -41,21 +41,21 @@ export HOSTNAME ?= pikvm
 export LOCALE ?= en_US
 export TIMEZONE ?= UTC
 export ARCH_DIST_REPO_URL ?= https://mirrors.ocf.berkeley.edu/archlinuxarm/
-BUILD_OPTS ?=
+export BUILD_OPTS ?=
 
-ROOT_PASSWD ?= root
-WEBUI_ADMIN_PASSWD ?= admin
-IPMI_ADMIN_PASSWD ?= admin
+export ROOT_PASSWD ?= root
+export WEBUI_ADMIN_PASSWD ?= admin
+export IPMI_ADMIN_PASSWD ?= admin
 
 export DISK ?= $(shell pwd)/upstream_os/disk/$(word 1,$(subst -, ,$(PLATFORM))).conf
 export CARD ?= /dev/null
 export IMAGE_XZ ?= 1
 
-DEPLOY_USER ?= root
+export DEPLOY_USER ?= root
 
 
 # =====
-SHELL = /usr/bin/env bash
+export SHELL = /usr/bin/env bash
 _BUILDER_DIR = ./.pi-builder/$(BLIKVM_PLATFORM)-$(BLIKVM_BOARD)$(BLIKVM_SUFFIX)
 _UPSTREAM_OS_DIR = ./upstream_os
 _BLIKVM_SOURCE_DIR = $(_BUILDER_DIR)/stages/arch/blikvm_source
