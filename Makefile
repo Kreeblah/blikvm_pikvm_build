@@ -49,7 +49,9 @@ export IPMI_ADMIN_PASSWD ?= admin
 
 export DISK ?= $(shell pwd)/upstream_os/disk/$(word 1,$(subst -, ,$(PLATFORM))).conf
 export CARD ?= /dev/null
-export IMAGE_XZ ?= 1
+# Default to 0 until things are settled with the liblzma stuff
+#export IMAGE_XZ ?= 1
+export IMAGE_XZ ?= 0
 
 export DEPLOY_USER ?= root
 
