@@ -10,7 +10,7 @@ COPY stages/blikvm_source/package/kvmd-fan/kvmd-fan.service /usr/lib/systemd/sys
 
 COPY stages/blikvm/override.yaml /etc/kvmd/override.yaml
 
-RUN kvmd-edidconf --restore-default=$EDIDTYPE
+RUN kvmd-edidconf --import-preset=$EDIDTYPE
 RUN kvmd-edidconf --set-audio=1
 
 RUN if [ "$EDIDTYPE" == "v4mini" ] || [ "$EDIDTYPE" == "v4plus" ]; then sed -i --follow-symlinks -e 's|^dtoverlay=tc358743$|\n#Video (CM4)\ndtoverlay=tc358743,4lane=1\n|g' /boot/config.txt; fi

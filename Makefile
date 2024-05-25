@@ -49,12 +49,7 @@ export IPMI_ADMIN_PASSWD ?= admin
 
 export DISK ?= $(shell pwd)/upstream_os/disk/$(word 1,$(subst -, ,$(PLATFORM))).conf
 export CARD ?= /dev/null
-# Default to 0 until things are settled with the liblzma stuff
-#export IMAGE_XZ ?= 1
-export IMAGE_XZ ?= 0
-# Hack to use 7zip for image compression for now until pi-builder has another option, or
-# liblzma issues are resolved; only tested on Debian Bookworm
-export IMAGE_7Z ?= 1
+export IMAGE_XZ ?= 1
 
 export DEPLOY_USER ?= root
 
@@ -138,13 +133,6 @@ image: $(_BUILDER_DIR)
 	$(eval _dated := blikvm-pikvm-$(BLIKVM_PLATFORM)-$(BLIKVM_BOARD)$(BLIKVM_SUFFIX)-$(shell date +%Y%m%d).img)
 	mkdir -p images
 	$(MAKE) -C $(_BUILDER_DIR) image IMAGE=$(shell pwd)/images/$(_dated)
-ifeq ($(IMAGE_7Z),1)
-		echo "Compressing image"
-		7zz a -mx9 $(shell pwd)/images/$(_dated).7z $(shell pwd)/images/$(_dated)
-		sha1sum $(shell pwd)/images/$(_dated).7z | awk '{print $$1}' > $(shell pwd)/images/$(_dated).7z.sha1
-		rm -f $(shell pwd)/images/$(_dated)
-		rm -f $(shell pwd)/images/$(_dated).sha1
-endif
 
 
 scan: $(_BUILDER_DIR)
