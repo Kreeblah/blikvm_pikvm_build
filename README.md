@@ -1,7 +1,5 @@
 # PiKVM OS Images for BliKVM hardware
 
-**Note: This project is temporarily using 7zip for image compression, rather than xz due to the xz/liblzma issue.  Although the issues found in liblzma so far have solely indicated an RCE using systemd and I can't imagine what issues there would be with decompressing an SD card image, the user responsible for the liblzma backdoor had been a major contributor to the project for two years, so I'm using 7zip for the time being until things get sorted there.  This assumes that the 7zip compression binary is named `7zz`, as it is on Debian Bookworm.**
-
 **Although this tooling uses the official PiKVM and BliKVM sources, the images produced should be considered unofficial and not endorsed by either the PiKVM or BliKVM teams.**
 
 This repo is a modification of the official PiKVM packaging system to generate builds for use with supported [BliKVM hardware](https://www.blicube.com).  It creates file layouts for the images and then applies the [BliKVM modifications](https://wiki.blicube.com/blikvm/en/modify_pikvm_image/) to the produced files, including the fan modifications, EDID modification, and `dtoverlay` option for 1080p support before generating the final image.  Everything not mentioned here that the BliKVM modification page discusses (such as HDMI audio) is currently offered in the base PiKVM repository by default.
