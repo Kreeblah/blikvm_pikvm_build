@@ -1,3 +1,7 @@
+# Notice
+
+My only computer that I needed a PiKVM device for died, so I no longer use this, and won't be maintaining it.
+
 # PiKVM OS Images for BliKVM hardware
 
 **Although this tooling uses the official PiKVM and BliKVM sources, the images produced should be considered unofficial and not endorsed by either the PiKVM or BliKVM teams.**
